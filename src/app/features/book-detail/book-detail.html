@@ -1,0 +1,17 @@
+<div class="book-details">
+  <h1>Book Details</h1>
+
+<div *ngIf="errorMessage">{{ errorMessage }}</div>
+
+<div *ngIf="book">
+  <h2>{{ book.title }}</h2>
+  <p><strong>Author:</strong> {{ book.author }}</p>
+  <p><strong>Description:</strong> {{ book.description }}</p>
+  <p><strong>Genre:</strong> {{ book.genre }}</p>
+  <p><strong>Year:</strong> {{ book.year }}</p>
+</div>
+
+</div>
+
+
+
