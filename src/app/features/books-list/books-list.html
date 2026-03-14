@@ -1,1 +1,66 @@
-<p>books-list works!</p>
+<div class="header py-4 mb-4 border-bottom">
+  <div class="container text-center">
+    <h1 class="mb-2 header-title">Book Browser</h1>
+    <p class="mb-0 text-white fw-light fst-italic">Stories, code, and curious things.</p>
+  </div>
+</div>
+  <!-- your cards grid below -->
+
+
+<div class="container py-4 text-center fw-medium">
+  <h1 class="mb-2 header-title">Books</h1>
+  <p class="mb-4 text-muted">✦ ━━━━━━━━━━━━ ✦ ༺❦༻ ✦ ━━━━━━━━━━━━ ✦</p>
+
+  <a routerLink="/books/add" class="btn btn-plum btn-sm mb-3">
+    Add Book
+  </a>
+  <p> ༺✦༻</p>
+
+  <hr class="my-4">
+
+
+  <div *ngIf="loading()">Loading books...</div>
+  <div *ngIf="error()">{{ error() }}</div>
+
+  <div class ="row" *ngIf="!loading()">
+
+  <!-- Search Bar that searches as you type -->
+  <div class="row justify-content-center mb-4">
+    <div class="col-md-6">
+      <input
+        type="text"
+        class="form-control text-center"
+        placeholder="Search by title, author, or genre..."
+        (input)="searchTerm.set($any($event.target).value)"/>
+    </div>
+    <div *ngIf="!loading() && filteredBooks().length === 0" class="text-muted text-center mt-4">
+      No books matched your search.
+    </div>
+  </div>
+
+    <div class="col-md-6 col-lg-4 mb-4" *ngFor="let book of filteredBooks()">
+
+      <div class="card h-100 shadow-md border-2 border-dark rounded-3 list-card">
+        <div class="card-body text-center">
+
+          <button
+            type="button"
+            class="btn btn-link p-0 border-0"
+            (click)="toggleFavorite(book)">
+            <i class="bi"
+              [ngClass]="book.favorite ? 'bi-heart-fill text-danger' : 'bi-heart text-secondary'">
+            </i>
+          </button>
+            <h5 class="card-title header-title">{{ book.title }}</h5>
+            <p class="card-text text-muted mb-3">by {{ book.author }}</p>
+
+            <div class="d-flex justify-content-center">
+              <a [routerLink]="['/books', book.id]" class="btn btn-plum btn-sm">
+                View Details       
+              </a>
+            </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 // src/app/features/books-list/books-list.ts
 
-import { Component, OnInit, inject, signal } from '@angular/core';
+import { Component, OnInit, computed, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BookService } from '../../core/book'; 
 import { Book } from '../../models/book.model';
@@ -10,21 +10,9 @@ import { RouterLink } from '@angular/router';
   selector: 'app-books-list',
   standalone: true,
   imports: [CommonModule, RouterLink],
-  template: `
-    <h1>Books</h1>
-
-      <div *ngIf="loading()">Loading books...</div>
-      <div *ngIf="error()">{{ error() }}</div>
-
-        <ul *ngIf="!loading() && books().length > 0">
-          <li *ngFor="let book of books()">
-          <a [routerLink]="['/books', book.id]">
-              {{ book.title }} by {{ book.author }}
-            </a>
-          </li>
-        </ul>
-      `
-    })
+  templateUrl: './books-list.html',
+  styleUrls: ['./books-list.scss']
+})
 
 // fetch books from the service and handle errors
 export class BooksListComponent implements OnInit {
@@ -32,6 +20,7 @@ export class BooksListComponent implements OnInit {
   books = signal<Book[]>([]);
   loading = signal(true);
   error = signal('');
+  searchTerm = signal('');
 
   // fetch books when component loads and update signals if needed 
   ngOnInit(): void {
@@ -47,4 +36,41 @@ export class BooksListComponent implements OnInit {
       }
     });
   }
+
+    filteredBooks = computed(() => {
+      const term = this.searchTerm().toLowerCase().trim();
+
+      if (!term) {
+        return this.books();
+      }
+
+      return this.books().filter(book => 
+        book.title.toLowerCase().includes(term) || 
+        book.author.toLowerCase().includes(term) ||
+        book.genre?.toLowerCase().includes(term)
+      );
+    });
+
+    toggleFavorite(book: Book): void {
+      if (!book.id) return;
+
+      const newFavorite = !(book.favorite ?? false);
+
+    // update UI immediately
+    book.favorite = newFavorite;
+
+    const updatedBook: Book = {
+      ...book,
+      favorite: newFavorite
+    };
+
+    this.bookService.putBook(String(book.id), updatedBook).subscribe({
+      error: (err) => {
+        console.error(err);
+        // revert UI if server fails
+        book.favorite = !newFavorite;
+      }
+    });
+  }
+
 }

@@ -11,6 +11,10 @@ export const routes: Routes = [
   { path: '', redirectTo: 'books', pathMatch: 'full' },
   { path: 'books', component: BooksListComponent },
   { path: 'books/add', component: AddBook },
+  { path: 'books/edit/:id', component: EditBook },
   { path: 'books/:id', component: BookDetailComponent },
-  { path: 'books/edit/:id', component: EditBook }
+  
+  // wildcard route for any sneaky paths not listed.
+  // redirects to the book list 
+  { path: '**', redirectTo: 'books' }
 ];

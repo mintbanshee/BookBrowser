@@ -1,67 +1,77 @@
-{ "books": [
-  {
-    "id": 1,
-    "title": "Some Useful Wild Plants",
-    "author": "Dan Jason",
-    "description": "A comprehensive guide to foraging and using wild plants for food, medicine, and other purposes.",
-    "genre": "Non-fiction",
-    "year": 2017 
-  },
 {
-    "id": 2,
-    "title": "Foxglove Journal",
-    "author": "L. Rowan",
-    "description": "A reflective guide to planting small habits and tracking moods like seeds in a garden.",
-    "genre": "Wellness",
-    "year": 2024
-  },
-  {
-    "id": 3,
-    "title": "The Coding Bard",
-    "author": "Arlen Thorne",
-    "description": "A whimsical journey through programming concepts told through stories, metaphors, and quiet moments of discovery.",
-    "genre": "Technology",
-    "year": 2023
-  },
-  {
-    "id": 4,
-    "title": "Midnight at the Mintforge",
-    "author": "Elowen Vale",
-    "description": "A cozy tale of a developer who builds magical tools in a small workshop lit by moonlight and glowing monitors.",
-    "genre": "Fantasy",
-    "year": 2025
-  },
-  {
-    "id": 5,
-    "title": "Driftwood Atlas",
-    "author": "S. Calder",
-    "description": "An illustrated collection of quiet places, ocean winds, and the stories that wash ashore with them.",
-    "genre": "Travel",
-    "year": 2022
-  },
-  {
-    "id": 6,
-    "title": "Seeds of Stillness",
-    "author": "Rowan Hart",
-    "description": "Small practices for slowing down, planting intentions, and tending the garden of everyday life.",
-    "genre": "Mindfulness",
-    "year": 2021
-  },
-  {
-    "id": 7,
-    "title": "Braces and Brackets",
-    "author": "Juniper Clarke",
-    "description": "A beginner-friendly exploration of programming logic wrapped in cozy metaphors and gentle lessons.",
-    "genre": "Programming",
-    "year": 2024
-  },
-  {
-    "id": 8,
-    "title": "The Spruce & The Sparrow",
-    "author": "A. Linden",
-    "description": "A quiet woodland story about resilience, creativity, and building something meaningful from small beginnings.",
-    "genre": "Fiction",
-    "year": 2020
-  }
-
-]}
+  "books": [
+    {
+      "id": "1",
+      "title": "Some Useful Wild Plants",
+      "author": "Dan Jason",
+      "description": "A comprehensive guide to foraging and using wild plants for food, medicine, and other purposes.",
+      "genre": "Non-fiction",
+      "year": 2017,
+      "favorite": false
+    },
+    {
+      "id": "2",
+      "title": "Foxglove Journal",
+      "author": "L. Rowan",
+      "description": "A reflective guide to planting small habits and tracking moods like seeds in a garden.",
+      "genre": "Wellness",
+      "year": 2024,
+      "favorite": true
+    },
+    {
+      "id": "3",
+      "title": "The Coding Bard",
+      "author": "Arlen Thorne",
+      "description": "A whimsical journey through programming concepts told through stories, metaphors, and quiet moments of discovery.",
+      "genre": "Technology",
+      "year": 2023,
+      "favorite": false
+    },
+    {
+      "id": "4",
+      "title": "Midnight at the Mintforge",
+      "author": "Elowen Vale",
+      "description": "A cozy tale of a developer who builds magical tools in a small workshop lit by moonlight and glowing monitors.",
+      "genre": "Fantasy",
+      "year": 2025,
+      "favorite": false
+    },
+    {
+      "id": "5",
+      "title": "Driftwood Atlas",
+      "author": "A. McQueen",
+      "description": "A detailed accounting of various driftwood types, where they were found and through trial and error discovering what they are best suited for in the world of carpentry. ",
+      "genre": "Travel and The Arts",
+      "year": 2025,
+      "favorite": false
+    },
+    {
+      "id": "6",
+      "title": "Seeds of Stillness",
+      "author": "Rowan Hart",
+      "description": "Small practices for slowing down, planting intentions, and tending the garden of everyday life.",
+      "genre": "Mindfulness",
+      "year": 2021,
+      "favorite": false
+    },
+    {
+      "id": "7",
+      "title": "Braces and Brackets",
+      "author": "Juniper Clarke",
+      "description": "A beginner-friendly exploration of programming logic wrapped in cozy metaphors and gentle lessons.",
+      "genre": "Programming",
+      "year": 2024,
+      "favorite": false
+    },
+    {
+      "id": "8",
+      "title": "The Spruce & The Sparrow",
+      "author": "A. Linden",
+      "description": "A quiet woodland story about resilience, creativity, and building something meaningful from small beginnings.",
+      "genre": "Fiction",
+      "year": 2020,
+      "favorite": false
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

@@ -22,7 +22,7 @@ export class BookService {
   }
 
   // get 1 book by it id and return an Observable book
-  getBookById(id: number): Observable<Book> {
+  getBookById(id: string): Observable<Book> {
     return this.http.get<Book>(`${this.apiUrl}/${id}`);
   }
 
@@ -32,12 +32,12 @@ export class BookService {
   }
 
   // update a book by its id and return an Observable book
-  putBook(id: number, book: Book): Observable<Book> {
+  putBook(id: string, book: Book): Observable<Book> {
     return this.http.put<Book>(`${this.apiUrl}/${id}`, book);
   }
 
   // delete a book by its id
-  deleteBook(id: number): Observable<void> {
+  deleteBook(id: string): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }

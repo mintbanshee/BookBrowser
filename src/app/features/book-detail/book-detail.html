@@ -1,17 +1,52 @@
-<div class="book-details">
-  <h1>Book Details</h1>
-
-<div *ngIf="errorMessage">{{ errorMessage }}</div>
-
-<div *ngIf="book">
-  <h2>{{ book.title }}</h2>
-  <p><strong>Author:</strong> {{ book.author }}</p>
-  <p><strong>Description:</strong> {{ book.description }}</p>
-  <p><strong>Genre:</strong> {{ book.genre }}</p>
-  <p><strong>Year:</strong> {{ book.year }}</p>
+<div class="header py-4 mb-4 border-bottom">
+  <div class="container text-center">
+    <h1 class="mb-2 header-title">Book Browser</h1>
+    <p class="mb-0 text-white fw-light fst-italic">Stories, code, and curious things.</p>
+  </div>
 </div>
 
+<div class="container py-4 text-center fw-medium">
+  <h1 class="mb-2 header-title">Book Details</h1>
+  <p class="mb-4 text-muted">✦ ━━━━━━━━━━━━ ✦ ༺❦༻ ✦ ━━━━━━━━━━━━ ✦</p>
+
+  <div *ngIf="errorMessage" class="text-danger mb-4">
+    {{ errorMessage }}
+  </div>
+
+  <div class="row justify-content-center" *ngIf="book">
+    <div class="col-md-8 col-lg-6">
+      <div class="card shadow-md border-2 border-dark rounded-3">
+        <div class="card-body text-center p-4">
+
+          <!--
+          <button class="btn btn-outline-danger" (click)="toggleFavorite()">
+            <i class="bi" [ngClass]="book.favorite ? 'bi-heart-fill' : 'bi-heart'"></i>
+          </button> -->
+          <h3 class="card-title header-title mb-3">{{ book.title }}</h3>
+          <p class="card-text text-muted mb-4">by {{ book.author }}</p>
+
+          <p class="mb-4 px-5">{{ book.description }}</p>
+
+          <p class="mb-2"><strong>Genre:</strong> {{ book.genre }}</p>
+          <p class="mb-4"><strong>Year:</strong> {{ book.year }}</p>
+
+          <div class="d-flex justify-content-center gap-2 flex-wrap">
+
+            <button class="btn btn-outline-danger btn-sm" (click)="deleteBook()">
+              Delete Book
+            </button>
+
+            <a routerLink="/books" class="btn btn-outline-dark btn-sm">
+              Back to Books
+            </a>
+
+            <a [routerLink]="['/books/edit', book.id]" class="btn btn-plum btn-sm">
+              Edit Book
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-
