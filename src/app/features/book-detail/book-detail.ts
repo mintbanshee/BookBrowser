@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { BookService } from '../../core/book';
 import { Book } from '../../models/book.model';
+import * as bootstrap from 'bootstrap';
 
 @Component({
   selector: 'app-book-detail',
@@ -74,25 +75,58 @@ export class BookDetail implements OnInit {
     });
   } 
 
-/* 
-  toggleFavorite(): void {
-    if (!this.book || !this.book.id) {
-      return;
-    }
+  // confirm delete and close modal
+  confirmDelete(): void {
+    // ensure the book exists before trying to delete
+    if (!this.book?.id) return;
 
-    const updatedBook: Book = {
-      ...this.book,
-      favorite: !this.book.favorite
-    };
-
-    this.bookService.putBook(this.book.id, updatedBook).subscribe({
+    // send delete request to db.json
+    this.bookService.deleteBook(String(this.book.id)).subscribe({
       next: () => {
-        this.book = updatedBook;
+        const modalElement = document.getElementById('deleteModal');
+
+        // close the modal
+        if (modalElement) {
+          const modal = bootstrap.Modal.getInstance(modalElement);
+          modal?.hide();
+        }
+        // remove the modal backdrop and allow scrolling again
+        document.body.classList.remove('modal-open');
+        document.querySelectorAll('.modal-backdrop').forEach(backdrop => backdrop.remove());
+
+        // navigate back to the book list
+        this.router.navigate(['/books']);
       },
       error: (err) => {
         console.error(err);
-        this.errorMessage = 'Sorry, the favorite status could not be updated.';
       }
     });
-  } */
+  }
+
+  // favourite toggle heart 
+  toggleFavorite(): void {
+    // ensure the book exists before trying to toggle favourite status
+    if (!this.book?.id) return;
+
+    // toggle the status of the book
+    const newFavorite = !(this.book.favorite ?? false);
+
+    // update the book object immediately
+    this.book.favorite = newFavorite;
+
+    // create a new book object with the updated status to send to db.json
+    const updatedBook: Book = {
+      ...this.book,
+      favorite: newFavorite
+    };
+
+    // send the update to the db.json
+    this.bookService.putBook(String(this.book.id), updatedBook).subscribe({
+      error: (err) => {
+        console.error(err);
+        this.book!.favorite = !newFavorite;
+      }
+    });
+  }
+  
 }

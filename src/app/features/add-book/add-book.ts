@@ -34,7 +34,8 @@ export class AddBook implements OnInit {
       author: ['', Validators.required],
       description: ['', Validators.required],
       genre: ['', Validators.required],
-      year: ['', Validators.required]
+      year: ['', Validators.required],
+      favorite: [false]
     });
   }
 

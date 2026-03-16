@@ -1,15 +1,6 @@
 {
   "books": [
     {
-      "id": "1",
-      "title": "Some Useful Wild Plants",
-      "author": "Dan Jason",
-      "description": "A comprehensive guide to foraging and using wild plants for food, medicine, and other purposes.",
-      "genre": "Non-fiction",
-      "year": 2017,
-      "favorite": false
-    },
-    {
       "id": "2",
       "title": "Foxglove Journal",
       "author": "L. Rowan",
@@ -25,16 +16,15 @@
       "description": "A whimsical journey through programming concepts told through stories, metaphors, and quiet moments of discovery.",
       "genre": "Technology",
       "year": 2023,
-      "favorite": false
+      "favorite": true
     },
     {
       "id": "4",
       "title": "Midnight at the Mintforge",
       "author": "Elowen Vale",
-      "description": "A cozy tale of a developer who builds magical tools in a small workshop lit by moonlight and glowing monitors.",
+      "description": "A cozy tale of a developer who builds magical tools in a small workshop lit by moonlight and glowing monitors. Her coding companion is a little black cat she has affectionately named, Luna. ",
       "genre": "Fantasy",
-      "year": 2025,
-      "favorite": false
+      "year": 2025
     },
     {
       "id": "5",
@@ -55,15 +45,6 @@
       "favorite": false
     },
     {
-      "id": "7",
-      "title": "Braces and Brackets",
-      "author": "Juniper Clarke",
-      "description": "A beginner-friendly exploration of programming logic wrapped in cozy metaphors and gentle lessons.",
-      "genre": "Programming",
-      "year": 2024,
-      "favorite": false
-    },
-    {
       "id": "8",
       "title": "The Spruce & The Sparrow",
       "author": "A. Linden",
@@ -71,6 +52,14 @@
       "genre": "Fiction",
       "year": 2020,
       "favorite": false
+    },
+    {
+      "id": "ca16",
+      "title": "The Forgotten King",
+      "author": "A. McQueen",
+      "description": "In a land lost to time, rests a kingdom with a forgotten name. A king, walks its halls and dines in the empty hall. His people have gone but he stays, protecting their homes and land in case they one day return.\n\nWandering, lost in the dark woods, a princess seeks shelter and safety as she flees her war-torn land in hopes to find aid to save her people.\n\nWill their paths connect?\nWill she save her people?\nWill the king finally not be alone in his shadowed walls?",
+      "genre": "Historical Romance",
+      "year": 2026
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
