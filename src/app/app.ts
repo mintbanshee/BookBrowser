@@ -1,7 +1,8 @@
 // src/app/app.ts
 
-import { Component, signal } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { AuthService } from './core/auth.service'
 
 // component to display the main application layout and router outlet for navigation
 @Component({
@@ -15,4 +16,10 @@ import { RouterOutlet } from '@angular/router';
 // main application component class
 export class AppComponent {
   title = signal('BookBrowser');
+
+  authService = inject(AuthService);
+
+  logout() {
+    this.authService.logout();
+  }
 }

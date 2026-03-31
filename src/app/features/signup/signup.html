@@ -1,0 +1,76 @@
+<div class="header py-4 mb-4 border-bottom">
+  <div class="container text-center">
+    <h1 class="mb-2 header-title">Book Browser</h1>
+    <p class="mb-0 text-white fw-light fst-italic">Stories, code, and curious things.</p>
+  </div>
+</div>
+
+<div class="container py-4 text-center fw-medium">
+  <h1 class="mb-2 header-title">Create an Account</h1>
+  <p class="mb-4 text-muted">✦ ━━━━━━━━━━━━ ✦ ༺❦༻ ✦ ━━━━━━━━━━━━ ✦ </p>
+  <p> ✦ </p>
+
+  <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card border-2 border-dark shadow-md rounded-3">
+        <div class="card-body p-4 text-start">
+
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+
+      <!-- Username -->
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input id="username" type="text" class="form-control" formControlName="username">
+
+        @if (signupForm.get('username')?.touched && signupForm.get('username')?.invalid) {
+          <div class="text-danger">
+            Username is required
+          </div>
+        }
+      </div>
+
+      <!-- Email -->
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input id="email" type="email" class="form-control" formControlName="email">
+
+        @if (signupForm.get('email')?.touched && signupForm.get('email')?.invalid) {
+          <div class="text-danger">
+            Valid email required
+          </div>
+        }
+      </div>
+
+      <!-- Password -->
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input id="password" type="password" class="form-control" formControlName="password">
+
+        @if (signupForm.get('password')?.touched && signupForm.get('password')?.invalid) {
+          <div class="text-danger">
+            Minimum 6 characters
+          </div>
+        }
+      </div>
+
+      <!-- Confirm Password -->
+      <div class="mb-3">
+        <label for="confirmPassword" class="form-label">Confirm Password</label>
+        <input id="confirmPassword" type="password" class="form-control" formControlName="confirmPassword">
+
+        @if (signupForm.get('confirmPassword')?.touched && signupForm.get('confirmPassword')?.invalid) {
+          <div class="text-danger">
+            Passwords do not match
+          </div>
+        }
+      </div>
+
+      <!-- Button -->
+      <button class="btn btn-plum w-100" type="submit">
+        Sign Up
+      </button>
+
+    </form>
+  </div>
+</div>
+</div>

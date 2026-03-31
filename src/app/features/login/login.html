@@ -1,0 +1,53 @@
+<div class="header py-4 mb-4 border-bottom">
+  <div class="container text-center">
+    <h1 class="mb-2 header-title">Book Browser</h1>
+    <p class="mb-0 text-white fw-light fst-italic">Stories, code, and curious things.</p>
+  </div>
+</div>
+
+<div class="container py-4 text-center fw-medium">
+  <h1 class="mb-2 header-title">Login</h1>
+  <p class="mb-4 text-muted">✦ ━━━━━━━━━━━━ ✦ ༺❦༻ ✦ ━━━━━━━━━━━━ ✦ </p>
+  <p> ✦ </p>
+
+   <div class="row justify-content-center">
+    <div class="col-md-8 col-lg-6">
+      <div class="card border-2 border-dark shadow-md rounded-3">
+        <div class="card-body p-4 text-start">
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+      <div class="mb-3">
+        <label for="email"class="form-label">Email</label>
+        <input id="email" type="email" class="form-control" formControlName="email">
+
+        @if (loginForm.get('email')?.touched && loginForm.get('email')?.invalid) {
+          <div class="text-danger">Valid email is required</div>
+        }
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input id="password" type="password" class="form-control" formControlName="password">
+
+        @if (loginForm.get('password')?.touched && loginForm.get('password')?.invalid) {
+          <div class="text-danger">Password is required</div>
+        }
+      </div>
+
+      @if (errorMessage) {
+        <div class="alert alert-danger">{{ errorMessage }}</div>
+      }
+
+      <button class="btn btn-plum w-100" type="submit">
+        Login
+      </button>
+
+      <p class="text-center mt-3 mb-0">
+        Don’t have an account?
+        <a routerLink="/signup">Sign up</a>
+      </p>
+    </form>
+  </div>
+</div>
+</div>

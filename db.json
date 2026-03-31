@@ -1,4 +1,24 @@
 {
+  "users": [
+    {
+      "id": "1",
+      "username": "kawaii_bibliophile",
+      "email": "kawaii_bibliophile@gmail.com",
+      "password": "test123"
+    },
+    {
+      "id": "2",
+      "username": "cozy_reader",
+      "email": "cozy_reader@gmail.com",
+      "password": "test123"
+    },
+    {
+      "id": "9688",
+      "username": "garden_reader",
+      "email": "readunderatree@gmail.com",
+      "password": "test123"
+    }
+  ],
   "books": [
     {
       "id": "2",
