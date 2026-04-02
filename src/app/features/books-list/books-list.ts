@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 import { BookService } from '../../core/book'; 
 import { Book } from '../../models/book.model';
 import { RouterLink } from '@angular/router';
+import { TruncateTextPipe } from '../../pipes/truncate-text-pipe';
 
 @Component({
   selector: 'app-books-list',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, TruncateTextPipe],
   templateUrl: './books-list.html',
   styleUrls: ['./books-list.scss']
 })

@@ -81,6 +81,7 @@
           <!-- books list - displays in alphabetical order through computed property -->
             <h5 class="card-title header-title">{{ book.title }}</h5>
             <p class="card-text text-muted mb-3">by {{ book.author }}</p>
+            <p class="card-text text-muted small mb-3 fst-italic">{{ book.description | truncateText:100 }}</p>
 
             <div class="d-flex justify-content-center">
               <a [routerLink]="['/books', book.id]" class="btn btn-plum btn-sm">
