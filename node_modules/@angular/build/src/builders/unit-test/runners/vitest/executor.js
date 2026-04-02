@@ -305,6 +305,7 @@ class VitestExecutor {
                     setupFiles: testSetupFiles,
                     projectPlugins,
                     include,
+                    watch,
                 }),
             ],
         };

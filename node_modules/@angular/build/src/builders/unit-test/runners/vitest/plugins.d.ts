@@ -26,6 +26,7 @@ interface VitestConfigPluginOptions {
     projectPlugins: Exclude<UserWorkspaceConfig['plugins'], undefined>;
     include: string[];
     optimizeDepsInclude: string[];
+    watch: boolean;
 }
 export declare function createVitestConfigPlugin(options: VitestConfigPluginOptions): Promise<VitestPlugins[0]>;
 export declare function createVitestPlugins(pluginOptions: PluginOptions): VitestPlugins;

@@ -57,8 +57,11 @@ async function prerenderPages(workspaceRoot, baseHref, appShellOptions, prerende
     }
     // Get routes to prerender
     const { errors: extractionErrors, serializedRouteTree: serializableRouteTreeNode, appShellRoute, } = await getAllRoutes(workspaceRoot, baseHref, outputFilesForWorker, assetsReversed, appShellOptions, prerenderOptions, sourcemap, outputMode).catch((err) => {
+        (0, error_1.assertIsError)(err);
         return {
-            errors: [`An error occurred while extracting routes.\n\n${err.message ?? err.stack ?? err}`],
+            errors: [
+                `An error occurred while extracting routes.\n\n${err.stack ?? err.message ?? err.code ?? err}`,
+            ],
             serializedRouteTree: [],
             appShellRoute: undefined,
         };
@@ -158,7 +161,8 @@ async function renderPages(baseHref, sourcemap, serializableRouteTreeNode, maxTh
                 }
             })
                 .catch((err) => {
-                errors.push(`An error occurred while prerendering route '${route}'.\n\n${err.message ?? err.stack ?? err.code ?? err}`);
+                (0, error_1.assertIsError)(err);
+                errors.push(`An error occurred while prerendering route '${route}'.\n\n${err.stack ?? err.message ?? err.code ?? err}`);
                 void renderWorker.destroy();
             });
             renderingPromises.push(renderResult);
@@ -234,7 +238,7 @@ async function getAllRoutes(workspaceRoot, baseHref, outputFilesForWorker, asset
         (0, error_1.assertIsError)(err);
         return {
             errors: [
-                `An error occurred while extracting routes.\n\n${err.message ?? err.stack ?? err.code ?? err}`,
+                `An error occurred while extracting routes.\n\n${err.stack ?? err.message ?? err.code ?? err}`,
             ],
             serializedRouteTree: [],
         };

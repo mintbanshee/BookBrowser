@@ -21,7 +21,9 @@ export type Schema = {
      */
     buildTarget?: string;
     /**
-     * Enables coverage reporting for tests.
+     * Enables coverage reporting for tests. If not specified, the coverage configuration from a
+     * runner configuration file will be used if present. Otherwise, coverage is disabled by
+     * default.
      */
     coverage?: boolean;
     /**

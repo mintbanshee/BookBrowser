@@ -95,7 +95,9 @@ async function* serveWithVite(serverOptions, builderName, builderAction, context
     // Angular SSR supports `*.`.
     const allowedHosts = Array.isArray(serverOptions.allowedHosts)
         ? serverOptions.allowedHosts.map((host) => (host[0] === '.' ? '*' + host : host))
-        : [];
+        : serverOptions.allowedHosts === true
+            ? ['*']
+            : [];
     // Always allow the dev server host
     allowedHosts.push(serverOptions.host);
     browserOptions.security = {
