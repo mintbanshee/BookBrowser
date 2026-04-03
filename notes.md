@@ -24,7 +24,7 @@
 
 - in my test additions I added an import HttpClientTestingModule
   * it is deprecated so I changed it to
-    provideHttpClientTesting
+    provideHttpClientTesting   
 
 - cleaning up imports, removing any that were unused 
 
@@ -37,7 +37,56 @@
       to 
       fixture.detectChanges()
 
-- added provideHttpClient
+- added provideHttpClient, withFetch 
+    * the withFetch makes it run smoothly with SSR 
+
+- created truncateText pipe
+    * shortens book descriptions to 100 characters + ...
+    * prevent UI being overwhelmed
+    * allow consistent display
+
+- added description (with truncateText:100) to book list
+    * improved UX
+    * styled italic and smaller text for visual hierarchy 
+
+- updated Angular dependencies to fix version conflicts
+    * ng update @angular/core @angular/cli
+    * needed this update to install SSR because of dependency mismatch
+    * fixed ERESOLVE errors during the SSR installation
+    * used --allow-dirty because Angular CLI had false "repo not clean" detected
+
+- installed Angular Server Side Rendering
+    * ng add @angular/ssr
+    * updated project structure with server files
+
+~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+          SSR Fixes
+~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+
+- resolved "document is not defined" error
+    * caused by browser-only DOM access during SSR
+    * wrapped document usage in isPlatformBrowser checks
+
+- guarded browser-only APIs
+    * document
+    * localStorage
+    * ensured they only run in browser environment
+
+- updated AuthService
+    * wrapped localStorage access in isPlatformBrowser
+    * ensured signals still update even when not in browser
+
+- removed Bootstrap JS dependency in BookDetail
+    * bootstrap.Modal caused SSR failure due to document usage
+    * removed modal instance logic
+    * kept manual backdrop cleanup and navigation
+
+- updated SSR route configuration
+    * changed RenderMode from Prerender to Server
+    * prevents need for getPrerenderParams on dynamic routes
+    * allows routes like books/:id and books/edit/:id to work
+
+- successfully ran production build with SSR enabled
 
 ~*~*~*~*~*~*~*~*~*~*~*~*~*~*
           Testing
@@ -72,4 +121,12 @@
     * verify method & URL
     * use mock responses
 - there is a difference between returning an Observable and actual data
+- SSR does not like browser-only APIs
+- libraries that rely on the DOM might break SSR
+- SSR requires separation of UI and logic
+- prerendering does not work with dynamic route parameters unless defined 
+- Angular CLI might give a false repo not clean error
+    * need to use --allow-dirty to continue with updates
+    * this also includes after git add, commit, push and git clean -fd 
+    
 

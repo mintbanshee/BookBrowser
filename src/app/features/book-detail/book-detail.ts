@@ -5,7 +5,10 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { BookService } from '../../core/book';
 import { Book } from '../../models/book.model';
-import * as bootstrap from 'bootstrap';
+
+// imports to make the document lines run in browser and not throw errors for SSR
+import { PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-book-detail',
@@ -20,19 +23,18 @@ export class BookDetail implements OnInit {
   book?: Book;
    errorMessage: string = '';
 
-    // inject ActivatedRoute to fetch the book ID and get the book details from the BookService
     constructor(
       private route: ActivatedRoute,
       private router: Router,
       private bookService: BookService,
       private cdr: ChangeDetectorRef,
-
-
+      // check if running in the browser
+      @Inject(PLATFORM_ID) private platformId: Object
     ) {}
 
     ngOnInit(): void {
       // get the book ID
-      this.route.paramMap.subscribe(params => {
+      this.route.paramMap.subscribe(() => {
         const bookId = this.route.snapshot.paramMap.get('id');
 
       // get the book details using the BookService
@@ -83,17 +85,13 @@ export class BookDetail implements OnInit {
     // send delete request to db.json
     this.bookService.deleteBook(String(this.book.id)).subscribe({
       next: () => {
-        const modalElement = document.getElementById('deleteModal');
-
-        // close the modal
-        if (modalElement) {
-          const modal = bootstrap.Modal.getInstance(modalElement);
-          modal?.hide();
+        // wraps in a check to make sure this part only runs in the browser
+        // to prevent error from the SSR
+        if (isPlatformBrowser(this.platformId)) {
+          // remove the modal backdrop and allow scrolling again
+          document.body.classList.remove('modal-open');
+          document.querySelectorAll('.modal-backdrop').forEach(backdrop => backdrop.remove());
         }
-        // remove the modal backdrop and allow scrolling again
-        document.body.classList.remove('modal-open');
-        document.querySelectorAll('.modal-backdrop').forEach(backdrop => backdrop.remove());
-
         // navigate back to the book list
         this.router.navigate(['/books']);
       },

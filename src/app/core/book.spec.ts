@@ -3,7 +3,7 @@
 // fake requests and inspect them
 import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { provideHttpClient } from '@angular/common/http';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 
 // fixed from Book to BookService, as the test is for BookService and not Book
@@ -16,7 +16,7 @@ describe('BookService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [provideHttpClient(), provideHttpClientTesting()]
+      providers: [provideHttpClient(withFetch()), provideHttpClientTesting()]
     });
     service = TestBed.inject(BookService);
     // injected the test controller
