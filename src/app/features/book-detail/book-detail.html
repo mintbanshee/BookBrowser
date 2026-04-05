@@ -69,6 +69,8 @@
           <h3 class="card-title header-title mb-3">{{ book.title }}</h3>
           <p class="card-text text-muted mb-4">by {{ book.author }}</p>
 
+          <img [src]="book.image" alt="{{ book.title }}" class="img-fluid rounded mb-4">
+
           <p class="mb-4 px-5">{{ book.description }}</p>
 
           <p class="mb-2"><strong>Genre:</strong> {{ book.genre }}</p>

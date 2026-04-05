@@ -24,10 +24,11 @@
       "id": "2",
       "title": "Foxglove Journal",
       "author": "L. Rowan",
-      "description": "A reflective guide to planting small habits and tracking moods like seeds in a garden.",
+      "description": "A reflective guide to planting small habits and tracking moods like seeds in a garden. Happy planting!",
       "genre": "Wellness",
       "year": 2024,
-      "favorite": true
+      "image": "images/FoxgloveJournalCover.png",
+      "favorite": false
     },
     {
       "id": "3",
@@ -36,7 +37,8 @@
       "description": "A whimsical journey through programming concepts told through stories, metaphors, and quiet moments of discovery.",
       "genre": "Technology",
       "year": 2023,
-      "favorite": true
+      "favorite": true,
+      "image": "images/CodingBardCover.png"
     },
     {
       "id": "4",
@@ -44,7 +46,9 @@
       "author": "Elowen Vale",
       "description": "A cozy tale of a developer who builds magical tools in a small workshop lit by moonlight and glowing monitors. Her coding companion is a small black cat she has affectionately named, Luna. ",
       "genre": "Fantasy",
-      "year": 2025
+      "year": 2025,
+      "image": "images/MidnightattheMintforgeCover.png",
+      "favorite": false
     },
     {
       "id": "5",
@@ -53,7 +57,8 @@
       "description": "A detailed accounting of various driftwood types, where they were found and through trial and error discovering what they are best suited for in the world of carpentry. ",
       "genre": "Travel and The Arts",
       "year": 2025,
-      "favorite": false
+      "favorite": true,
+      "image": "images/DriftwoodAtlasCover.png"
     },
     {
       "id": "6",
@@ -62,7 +67,8 @@
       "description": "Small practices for slowing down, planting intentions, and tending the garden of everyday life.",
       "genre": "Mindfulness",
       "year": 2021,
-      "favorite": false
+      "favorite": false,
+      "image": "images/SeedsOfStillnessCover.png"
     },
     {
       "id": "8",
@@ -71,7 +77,8 @@
       "description": "A quiet woodland story about resilience, creativity, and building something meaningful from small beginnings.",
       "genre": "Fiction",
       "year": 2020,
-      "favorite": false
+      "favorite": false,
+      "image": "images/SparrowAndSpruceCover.png"
     },
     {
       "id": "ca16",
@@ -79,7 +86,8 @@
       "author": "A. McQueen",
       "description": "In a land lost to time, rests a kingdom with a forgotten name. A king, walks its halls and dines in the empty hall. His people have gone but he stays, protecting their homes and land in case they one day return.\n\nWandering, lost in the dark woods, a princess seeks shelter and safety as she flees her war-torn land in hopes to find aid to save her people.\n\nWill their paths connect?\nWill she save her people?\nWill the king finally not be alone in his shadowed walls?",
       "genre": "Historical Romance",
-      "year": 2026
+      "year": 2026,
+      "image": "images/ForgottenKingCover.png"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

@@ -35,7 +35,8 @@ export class AddBook implements OnInit {
       description: ['', Validators.required],
       genre: ['', Validators.required],
       year: ['', Validators.required],
-      favorite: [false]
+      favorite: [false],
+      image: ['images/DemoCover.png']
     });
   }
 

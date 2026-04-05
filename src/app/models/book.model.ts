@@ -9,6 +9,5 @@ export interface Book {
   genre?: string; // optional because not all books have a genre
   year: number;
   favorite?: boolean; // optional because not all books are marked as favourite
-  
-  // might add images later if time allows 
+  image: string;
 }

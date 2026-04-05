@@ -38,7 +38,8 @@ export class EditBook implements OnInit {
       author: ['', Validators.required],
       description: ['', Validators.required],
       genre: ['', Validators.required],
-      year: [0, Validators.required]
+      year: [0, Validators.required],
+      image: ['']
     });
 
     // get the book details to fill in the form 

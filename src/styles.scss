@@ -19,6 +19,10 @@
 .list-card:hover {
   box-shadow: 0 0 12px rgba(90, 20, 50, 0.3); 
 }
+.list-card:hover img {
+  transform: scale(1.03);
+  transition: 0.2s ease;
+}
 .card-body p {
   line-height: 1.6;
 }
