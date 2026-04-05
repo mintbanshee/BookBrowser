@@ -59,6 +59,10 @@
     * ng add @angular/ssr
     * updated project structure with server files
 
+- added book cover images to book-list and book-detail
+- added image path to add and edit 
+    * images/DemoCover.png is the default cover 
+
 ~*~*~*~*~*~*~*~*~*~*~*~*~*~*
           SSR Fixes
 ~*~*~*~*~*~*~*~*~*~*~*~*~*~*
