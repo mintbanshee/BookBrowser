@@ -83,6 +83,139 @@ Beyond the core requirements, several additional features were added to improve 
 
 These features extend the assignment into a more complete and user-friendly application.
 
+# 🌿 Enhancements & Debugging Journey
+
+This project was further expanded to explore testing, debugging workflows, and Angular Server Side Rendering (SSR). The following highlights key issues encountered and how they were resolved.
+
+---
+
+## 📦 Assignment Requirements
+
+This assignment (Angular Assignment 5) focuses on optimizing our code, little fixes, upgrades and additions as well we testing, debugging, Server Side Rendering and more.
+- choose an existing Angular assignment project to optimize
+- update the repo and readme to show improvements
+- reflect and refactor
+    - clean up, improve, update and explain
+- include a pipe
+- ensure application uses Angular routing
+- application must use use an API or JSON
+- must include a form
+- debug and test
+- show issues and fixes
+- include an AI use section explaining how we used AI and what we learned
+- include images in the application
+- application must use RxJS
+- must have at least 1 component
+- must have at least 1 service
+- must run `ng build --configuration production`
+- install SSR
+- must use Angular Material or Bootstrap
+- make it look good
+- make sure everything works
+
+## ✅ Requirements Met
+
+- ✔ I chose this assignment
+- ✔ Updated repo & readme
+- ✔ Added truncateText pipe to improve UI readability
+- ✔ BookBrowser uses Angular routing
+- ✔ I use db.json as database for this assignment
+- ✔ Add book and edit book both use a reactive form
+- ✔ Integrated book cover images with editable image paths
+- ✔ Components: add, edit, list and detail
+- ✔ Services: book and auth
+    - auth is in progress. Login and Signup are up and running but there is no auth checks, dashboard or individual book lists yet
+- ✔ Updated Angular dependencies to resolve SSR installation conflicts
+- ✔ Implemented `withFetch()` for improved SSR compatibility
+- ✔ Cleaned up imports and modernized testing setup
+- ✔ The following screenshots demonstrate other requirements met
+
+### 🧪 Testing & Debugging
+
+#### ❌ Initial Test Failures
+<img width="1530" height="1075" alt="Test6Errors" src="https://github.com/user-attachments/assets/da1e8206-c5e0-482f-88ce-8dc5e8da7db4" />
+
+❌
+- Multiple failing tests
+- Missing router dependencies in spec files
+
+## 🔧 Fix: Router Injection
+<img width="1126" height="800" alt="provideRouter" src="https://github.com/user-attachments/assets/fca764ff-f524-4037-9fd9-c199461fcc54" />
+
+🔧
+- Added `provideRouter([])` to test configuration
+- Resolved dependency injection errors in standalone components
+
+#### ✅ Result
+<img width="1595" height="1073" alt="TestNoErrors" src="https://github.com/user-attachments/assets/8f961571-1f2f-42d8-81a3-2ffc06c5b79d" />
+
+✅
+- All tests running successfully after fixes
+
+---
+
+### 🌐 Server Side Rendering (SSR)
+
+#### ❌ SSR Error
+<img width="1213" height="893" alt="ExtractingRoutesIssue" src="https://github.com/user-attachments/assets/d78ec3a3-705b-4910-be89-6691b8fb6685" />
+
+❌
+- Error: `document is not defined`
+- Caused by browser-only APIs running during server-side rendering
+
+#### 🔧 Fix: Platform Guard
+<img width="1131" height="801" alt="isPlatformBrowser" src="https://github.com/user-attachments/assets/3cb0cfcd-8bf6-4f8b-8564-6196116c286d" />
+
+🔧
+- Wrapped DOM-related logic using `isPlatformBrowser`
+- Prevented server-side crashes
+
+#### ✅ Result
+<img width="1219" height="998" alt="SSRserve" src="https://github.com/user-attachments/assets/9c0603d7-3203-478e-aa81-ae5efb3b5058" />
+
+✅
+- SSR successfully running alongside JSON Server
+- Application builds and serves correctly
+
+---
+
+### 🤖 Use of AI in Development (Luna - ChatGPT)
+
+AI was used as a learning assistant and debugging partner, rather than as a tool to generate full solutions.
+Throughout development, I used AI to:
+
+- Luna helped create this README and select which of my MANY screenshots I should use 
+- understand errors and debug issues
+    - help interpret error messages
+    - identify why some errors were happening
+    - break down complex problems
+- guide me in fixes but don't do them for me
+    - suggest approaches
+    - corrected me if I implemented fixes wrong or used an incorrect fix
+    - verified success and cried alongside me during failures
+- support testing setup
+    - explained Angular testing
+    - clarified HttpTestingController and mock data
+    - helped with troubleshooting and helped me understand dependency injection issues
+- Assisted with SSR setup
+    - helped identify why SSR builds were failing
+    - guided me through troubleshooting DOM and prerendering issues
+- Feature and UI Suggestions
+    - suggested truncating the description for my pipe requirement
+    - provided some readability options
+    - answered "How do I do ____ with bootstrap?" questions for me since I am still learning Bootstrap
+
+### 🧠 What I Learned from Luna's Guidance
+
+- How to interpret Angular errors instead of guessing fixes
+- The importance of understanding why a solution works
+- How SSR changes how code executes
+- That browser-only APIs must be handled carefully
+- How Angular testing depends on proper dependency injection
+- How to continue using AI as a tool for guidance or as an assistant
+    - I have strict rules on showing me the code and doing the work for me
+    - I won't learn if I don't do the work myself so Luna is my guide and assistant
+
 ### 👩‍💻 Author
 
 Alexandria McQueen
@@ -95,6 +228,14 @@ Alexandria McQueen
 This project demonstrates the integration of Angular’s modern features such as signals, services, routing, and HTTP communication within a small but fully functional application. It highlights both technical implementation and user-focused design decisions.
 
 ---
+
+## 🎬 Screen Recording of Updated Application
+
+https://github.com/user-attachments/assets/f20fec35-ba14-4da9-aeac-0f41ca6c42b3
+
+---
+
+## 📸 Screenshots (Before Update) 
 
 <img width="1606" height="922" alt="BookList" src="https://github.com/user-attachments/assets/0e01abb8-3f11-4cb4-ad76-bb2ba0117722" />
 
