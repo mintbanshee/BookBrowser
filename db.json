@@ -24,11 +24,11 @@
       "id": "2",
       "title": "Foxglove Journal",
       "author": "L. Rowan",
-      "description": "A reflective guide to planting small habits and tracking moods like seeds in a garden. Happy planting!",
+      "description": "A reflective guide to planting small habits and tracking moods like seeds in a garden. ",
       "genre": "Wellness",
       "year": 2024,
       "image": "images/FoxgloveJournalCover.png",
-      "favorite": false
+      "favorite": true
     },
     {
       "id": "3",
@@ -67,7 +67,7 @@
       "description": "Small practices for slowing down, planting intentions, and tending the garden of everyday life.",
       "genre": "Mindfulness",
       "year": 2021,
-      "favorite": false,
+      "favorite": true,
       "image": "images/SeedsOfStillnessCover.png"
     },
     {
